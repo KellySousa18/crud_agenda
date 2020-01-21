@@ -17,7 +17,7 @@ class ContatoRepository {
    
     salva(contato, callback) {
 
-        if ( (contato.hasOwnProperty('id')) && (contato.nome > 0) ) {
+        if ( (contato.hasOwnProperty('telefone')) && (contato.nome.length > 0) ) {
                this._conexao.query('update contato set ? where telefone = ' + contato.telefone, contato, callback);
 
         } else {

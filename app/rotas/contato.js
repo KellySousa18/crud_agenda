@@ -35,9 +35,9 @@ module.exports = function(app) {
     }
 
     let conexao = new app.infra.ConnectionFactory().getConexao();
-    let contato = new app.repositorio.ContatoRepository(conexao);
-
-    contato.salva(contato, function(erros, resultados) {
+    let contatos = new app.repositorio.ContatoRepository(conexao);
+    console.log('salva: ', contato );
+    contatos.salva(contato, function(erros, resultados) {
       resp.redirect("/contato");
     });
 
@@ -50,9 +50,9 @@ module.exports = function(app) {
     };
 
     let conexao = new app.infra.ConnectionFactory().getConexao();
-    let contato = new app.repositorio.ContatoRepository(conexao);
+    let contatos = new app.repositorio.ContatoRepository(conexao);
 
-    contato.remove(contato, function(erros, resultados) {
+    contatos.remove(contato, function(erros, resultados) {
       resp.redirect("/contato");
     });
   });
@@ -61,7 +61,7 @@ module.exports = function(app) {
     let conexao = new app.infra.ConnectionFactory().getConexao();
     let contato = new app.repositorio.ContatoRepository(conexao);
 
-    contato.porNome(req.params.telefone, function(erros, resultado) {
+    contato.porTelefone(req.params.telefone, function(erros, resultado) {
       if (erros) {
         console.log(erros);
       }
@@ -70,7 +70,7 @@ module.exports = function(app) {
         contato: {
           nome: resultado[0].nome,
           telefone: resultado[0].telefone,
-          operadora: resultado[0].operador
+          operadora: resultado[0].operadora
         }
       });
       console.log({ resultado });
