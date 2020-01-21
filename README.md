@@ -1,6 +1,6 @@
 # Descrição
 
-Aplicação Node que simula uma lista telefônica, contendo: nome, número do telefone e operadora. A aplicação permite adicionar, excluir e editar e visualizar os contatos.
+Aplicação Node que simula uma lista telefônica, contendo: nome, número do telefone e operadora. A aplicação permite adicionar, excluir, editar e visualizar os contatos.
 
 # Uso
 
